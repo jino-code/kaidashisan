@@ -1,7 +1,6 @@
 ```mermaid
 erDiagram
     users ||--|| profiles : ""
-    profiles }o--|| chatrooms : ""
     users ||--o{ shopping_list_items : ""
 
     users {
@@ -14,17 +13,10 @@ erDiagram
 
     profiles {
         uuid id PK
-        uuid chatroom_id FK
-        timestamp created_at
-        timestamp updated_at
-    }
-
-    chatrooms {
-        uuid id PK
-        string group_id
-        string name
-        timestamp created_at
-        timestamp updated_at
+        string line_group_id
+        string line_group_name
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     shopping_list_items {
@@ -32,7 +24,7 @@ erDiagram
         uuid user_id FK
         string name
         boolean is_checked
-        timestamp created_at
-        timestamp updated_at
+        timestamptz created_at
+        timestamptz updated_at
     }
 ```
